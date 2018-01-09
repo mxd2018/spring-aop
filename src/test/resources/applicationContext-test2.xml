@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+    	http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd 
+        
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.2.xsd 
+        ">
+
+  	<!-- 注解的是使用 -->
+  	<!-- base-package基础包：表示所在包下的注解类，都能扫描到，被注解的类都会在容器初始化时被实例化 -->
+  	<!-- <context:component-scan base-package="com.qianfeng"></context:component-scan> -->
+	
+	<bean id="userServiceImpl" class="com.qianfeng.userserviceimpl.UserServiceImpl"></bean>
+	
+	<bean id="myAdvice" class="com.qianfeng.enhanced.MyAdvice"></bean>
+	
+	<!-- <aop:config proxy-target-class="false">
+		<aop:pointcut expression="execution(* com.qianfeng.userserviceimpl.*UserServiceImpl.*(..))" id="pc"/>
+		<aop:aspect ref="myAdvice">
+			<aop:before method="before" pointcut-ref="pc"/>
+			<aop:after-returning method="afterReturning" pointcut-ref="pc"/> 
+			<aop:around method="around" pointcut-ref="pc"/>
+			<aop:after-throwing method="afterException" pointcut-ref="pc"/>
+			<aop:after method="after" pointcut-ref="pc"/>
+		</aop:aspect>
+	</aop:config>
+	
+	
+	 -->
+	
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+	
+</beans>
+
+
